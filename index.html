@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You 💜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scene 1: The Question -->
+  <div id="scene-1" class="scene active">
+
+    <!-- Background layer: animated orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+    </div>
+
+    <!-- Background layer: sparkle stars -->
+    <div class="bg-stars" aria-hidden="true">
+      <span class="star s1">✦</span>
+      <span class="star s2">✦</span>
+      <span class="star s3">✧</span>
+      <span class="star s4">✦</span>
+      <span class="star s5">✧</span>
+      <span class="star s6">✦</span>
+      <span class="star s7">✧</span>
+      <span class="star s8">✦</span>
+    </div>
+
+    <!-- Background layer: floating hearts -->
+    <div class="bg-hearts" aria-hidden="true">
+      <span class="heart h1">💜</span>
+      <span class="heart h2">💜</span>
+      <span class="heart h3">🩵</span>
+      <span class="heart h4">💜</span>
+      <span class="heart h5">💜</span>
+      <span class="heart h6">🩵</span>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="scene-content">
+      <h1 class="main-heading">I love you, baby</h1>
+      <p class="question-text">do you love me?</p>
+
+      <div class="button-group">
+        <button id="yes-btn" class="btn btn-yes">Yes 💜</button>
+        <button id="no-btn" class="btn btn-no">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 2: The Scroll / Letter -->
+  <div id="scene-2" class="scene hidden">
+
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+    </div>
+
+    <div class="bg-stars" aria-hidden="true">
+      <span class="star s1">✦</span>
+      <span class="star s2">✦</span>
+      <span class="star s3">✧</span>
+      <span class="star s4">✦</span>
+      <span class="star s5">✧</span>
+      <span class="star s6">✦</span>
+      <span class="star s7">✧</span>
+      <span class="star s8">✦</span>
+    </div>
+
+    <div class="bg-hearts" aria-hidden="true">
+      <span class="heart h1">💜</span>
+      <span class="heart h2">💜</span>
+      <span class="heart h3">🩵</span>
+      <span class="heart h4">💜</span>
+      <span class="heart h5">💜</span>
+      <span class="heart h6">🩵</span>
+    </div>
+
+    <!-- Closed scroll state -->
+    <div class="scroll-stage" id="scrollStage">
+
+      <p class="touch-hint" id="touchHint">✦ touch the scroll ✦</p>
+
+      <div class="scroll-wrapper" id="scrollWrapper" role="button" tabindex="0" aria-label="Open the scroll">
+        <!-- Top rod -->
+        <div class="scroll-rod scroll-rod-top">
+          <div class="scroll-rod-cap left"></div>
+          <div class="scroll-rod-bar"></div>
+          <div class="scroll-rod-cap right"></div>
+        </div>
+
+        <!-- The parchment body -->
+        <div class="scroll-body">
+          <!-- Left & right curl shadows -->
+          <div class="scroll-curl scroll-curl-left"></div>
+          <div class="scroll-curl scroll-curl-right"></div>
+
+          <div class="scroll-closed-face">
+            <div class="scroll-seal-ring">
+              <span class="scroll-seal">💜</span>
+            </div>
+            <p class="scroll-label">a letter for you</p>
+          </div>
+        </div>
+
+        <!-- Bottom rod -->
+        <div class="scroll-rod scroll-rod-bottom">
+          <div class="scroll-rod-cap left"></div>
+          <div class="scroll-rod-bar"></div>
+          <div class="scroll-rod-cap right"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opened letter (hidden until scroll tapped) -->
+    <div class="letter-container hidden" id="letterContainer">
+      <div class="letter-inner">
+
+        <div class="letter-header">
+          <div class="letter-ornament top-ornament">❧</div>
+          <span class="letter-seal-small">💜</span>
+          <p class="letter-calligraphy">for you, always</p>
+          <div class="letter-divider"><span>✦</span></div>
+        </div>
+
+        <div class="letter-body">
+          <p>I'm sorry. I know there are things I could have handled better, and I know that some of my actions have hurt you. I never wanted you to feel that you weren't important to me, that spending time with you was becoming a burden, or that I was slowly getting tired of us. I hope you can understand that there's a side of me I've been struggling to explain, and I wish you could see where I'm coming from, too.</p>
+
+          <p>I wasn't trying to point out that your demands were too much or that you were asking for more than I could give. What I wanted was for you to understand why I sometimes do things the way I do. I have this tendency to solve my own problems without asking for help because, somehow, asking someone else to help me makes me feel incompetent, like I'm incapable of handling my own struggles. I know that mindset isn't always healthy, and I know it sometimes leads to misunderstandings between us, but it's something I've been trying to work through. I want to learn how to let someone in without feeling like I've failed myself. And I want that someone to be you. There are moments when I wish I could just ask for your opinion, hear your thoughts, get your guidance, or even let you help me make decisions when I can no longer trust my own judgment. I don't always know how to ask for those things, but that doesn't mean I don't need you.</p>
+
+          <p>There's also something personal that I haven't fully learned how to deal with. Some things I've done in the past still haunt me, and I deeply regret them. Even something as simple as walking you through CSU when you're going home can sometimes be difficult because certain places bring back memories of the things I wish I had done differently. I understand how it might look from your perspective, and I understand why you would feel hurt or question my actions. But please know that it has nothing to do with not wanting to be with you. I'm struggling with the weight of my own past, and sometimes it affects things I never intended it to affect. I wish I could explain all of this without making it seem like I'm making excuses for myself.</p>
+
+          <p>I also hope you understand that I'm not shutting myself off from you. My door is still open. I'm just not always standing at the entrance, explaining everything that's happening inside me. Sometimes, I'm already inside, quietly waiting and hoping that you'll come in, sit beside me, hold me, and understand that I don't always need to explain what's wrong before I can be comforted. I know I have to learn to communicate better, and I'm not expecting you to read my mind. But I hope you understand that expressing things like these takes time for me. They're deeply personal and sensitive, and I'm not someone who easily shares what's going on inside. It doesn't mean I don't trust you or that I don't want you to know. Sometimes, I just don't know where to begin.</p>
+
+          <p>Honestly, it hurts when I feel like everything I've done is being misunderstood, especially when I know the intentions behind those actions. It hurts even more when it feels like you've already built up an idea of me being someone who doesn't want to make an effort for you. You know I wouldn't intentionally treat you that way. I know neither of us is perfect, and I don't want us to keep looking for who's wrong between the two of us. I don't think either of us intended to hurt the other. I think we simply failed to understand each other's sides, and I wish we could work through that without making each other feel like the problem.</p>
+
+          <p>I'm also sorry for not making enough time for you, for the moments I've spent less time with you and chosen to play games instead. I hope you understand that gaming has become one of my little escapes whenever everything feels too heavy. It's where I temporarily put down the things I can't seem to carry anymore. It's never because your presence isn't enough or because I'd rather spend my time doing something else than being with you. Sometimes, I just need somewhere to let my mind rest. But I understand that even if that's how I cope, it doesn't mean I should overlook the time and attention you need from me. I'm sorry for the times my struggles have made me distant, less present, or unable to give you the affection and attention you deserve. I'm still figuring things out, and honestly, I don't always know how to balance everything, but I want to do better.</p>
+
+          <p>And about what you said, that maybe we shouldn't go further because loving me has become draining, I won't pretend that it didn't hurt. It did. Because the exhaustion I've been feeling isn't coming from loving you or being with you. I'm struggling with myself, with my regrets, with things I don't always know how to express. Hearing that made me feel like you were ready to let go of us because of something that I haven't even properly explained. Please don't make a decision about us while we're both overwhelmed and hurting. I don't want one difficult moment or one misunderstanding to become the reason we give up on everything we've built. I'm not asking you to ignore your feelings, and I'm not asking you to stay if you're genuinely unhappy. I just hope you'll try to understand mine, too, before deciding that we're better off without each other.</p>
+
+          <p>I know I still have a lot to work on. I know loving someone also means learning how to communicate, how to make time, how to be present, and how to understand things beyond my own perspective. I'm sorry for the times I fell short. I'm sorry for making you question your place in my life. And I'm sorry that sometimes, the things I struggle to say end up hurting you more than the things I actually say.</p>
+
+          <p>I just want you to know that I understand your side, even when I don't necessarily agree with everything. I hear you, and I don't want you to feel that your feelings are any less important than mine. I only wish you'd give my side the same space to be understood. I don't want us to keep hurting each other over things we could have talked through if only we had been a little more patient with one another.</p>
+
+          <p>I love you. Not just when things are easy between us, not just when I have everything figured out, and not just when I can give you all the time and attention you deserve. I love you even in the middle of all the things I'm still trying to understand about myself. I'm not struggling with the thought of having you in my future. I'm struggling with parts of myself that I haven't figured out how to leave behind. And I don't want those parts to keep getting in the way of something I genuinely want to keep.</p>
+
+          <p>I still want you. I still want us. And despite everything, I still want to figure things out with you, not against you.</p>
+        </div>
+
+        <div class="letter-footer">
+          <div class="letter-closing">
+            <div class="letter-divider"><span>✦</span></div>
+            <p class="letter-sign">with all my heart 💜</p>
+          </div>
+          <button class="btn-next" id="nextBtn">Next &rarr;</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scene 3: The Night Sky & Blooming Purple Bouquet -->
+  <div id="scene-3" class="scene hidden">
+
+    <!-- Starry Night Sky Background -->
+    <div class="night-sky" aria-hidden="true">
+      <div class="sky-gradient-glow"></div>
+      <div class="sky-celestial-aura"></div>
+
+      <!-- Glowing Moon -->
+      <div class="sky-moon"></div>
+
+      <!-- Organic Twinkling Stars -->
+      <div class="stars-cluster">
+        <span class="sky-star s-organic s-1"  style="top:  8%; left: 12%;">✦</span>
+        <span class="sky-star s-organic s-2"  style="top: 14%; left: 84%;">★</span>
+        <span class="sky-star s-organic s-3"  style="top: 22%; left: 28%;">✧</span>
+        <span class="sky-star s-organic s-4"  style="top: 10%; left: 52%;">✦</span>
+        <span class="sky-star s-organic s-5"  style="top: 30%; left: 74%;">·</span>
+        <span class="sky-star s-organic s-6"  style="top: 38%; left: 16%;">✧</span>
+        <span class="sky-star s-organic s-7"  style="top: 25%; left:  8%;">✦</span>
+        <span class="sky-star s-organic s-8"  style="top: 18%; left: 40%;">·</span>
+        <span class="sky-star s-organic s-9"  style="top: 34%; left: 62%;">★</span>
+        <span class="sky-star s-organic s-10" style="top: 44%; left: 86%;">✦</span>
+        <span class="sky-star s-organic s-11" style="top: 48%; left: 24%;">✧</span>
+        <span class="sky-star s-organic s-12" style="top:  6%; left: 92%;">·</span>
+        <span class="sky-star s-organic s-13" style="top: 19%; left: 68%;">★</span>
+        <span class="sky-star s-organic s-14" style="top: 42%; left:  5%;">·</span>
+        <span class="sky-star s-organic s-15" style="top: 15%; left: 32%;">✦</span>
+        <span class="sky-star s-organic s-16" style="top: 28%; left: 48%;">✧</span>
+        <span class="sky-star s-organic s-17" style="top: 52%; left: 78%;">·</span>
+        <span class="sky-star s-organic s-18" style="top: 36%; left: 92%;">✦</span>
+      </div>
+
+      <!-- Gentle Shooting Star -->
+      <div class="shooting-star"></div>
+    </div>
+
+    <!-- Scene 3 Content Stage -->
+    <div class="scene3-stage">
+
+      <!-- Emotional Typography Message above the bouquet -->
+      <div class="scene3-message" id="scene3Message">
+        <h2 class="scene3-title">Let's fix this:&lt;</h2>
+      </div>
+
+      <!-- Blooming Bouquet Centerpiece -->
+      <div class="bouquet-bloom-wrapper" id="bouquetWrapper">
+        <div class="bouquet-glow-aura" aria-hidden="true"></div>
+
+        <!-- Detailed Elegant Purple Flower Bouquet SVG -->
+        <svg class="bouquet-svg" viewBox="0 0 380 430" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Wrapper Gradients -->
+            <linearGradient id="wrapGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fae8ff" />
+              <stop offset="35%" stop-color="#e9d5ff" />
+              <stop offset="70%" stop-color="#c084fc" />
+              <stop offset="100%" stop-color="#9333ea" />
+            </linearGradient>
+            <linearGradient id="wrapInnerGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7e22ce" />
+              <stop offset="100%" stop-color="#4c0519" />
+            </linearGradient>
+            <linearGradient id="ribbonGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f0abfc" />
+              <stop offset="45%" stop-color="#c084fc" />
+              <stop offset="100%" stop-color="#7e22ce" />
+            </linearGradient>
+            <!-- Leaf Gradient -->
+            <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#86efac" />
+              <stop offset="50%" stop-color="#22c55e" />
+              <stop offset="100%" stop-color="#14532d" />
+            </linearGradient>
+            <!-- Rose Petal Gradients -->
+            <radialGradient id="roseCenterGrad2" cx="50%" cy="45%" r="60%">
+              <stop offset="0%" stop-color="#fdf4ff" />
+              <stop offset="30%" stop-color="#f5d0fe" />
+              <stop offset="65%" stop-color="#c084fc" />
+              <stop offset="90%" stop-color="#7e22ce" />
+              <stop offset="100%" stop-color="#4c1d95" />
+            </radialGradient>
+            <radialGradient id="roseLeftGrad2" cx="45%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="#fdf4ff" />
+              <stop offset="40%" stop-color="#d8b4fe" />
+              <stop offset="75%" stop-color="#9333ea" />
+              <stop offset="100%" stop-color="#581c87" />
+            </radialGradient>
+            <radialGradient id="roseRightGrad2" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="#fae8ff" />
+              <stop offset="35%" stop-color="#f472b6" />
+              <stop offset="75%" stop-color="#c026d3" />
+              <stop offset="100%" stop-color="#701a75" />
+            </radialGradient>
+            <linearGradient id="lavenderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#f3e8ff" />
+              <stop offset="50%" stop-color="#c084fc" />
+              <stop offset="100%" stop-color="#6b21a8" />
+            </linearGradient>
+            <!-- Soft Bouquet Drop Glow Filter -->
+            <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Back Leaves and Eucalyptus Foliage -->
+          <g class="foliage-back">
+            <!-- Left eucalyptus branch -->
+            <path d="M 125 250 C 95 195 75 155 52 135 C 68 150 88 160 98 175" stroke="#15803d" stroke-width="3.5" fill="none" stroke-linecap="round" />
+            <path d="M 62 140 Q 40 130 46 152 Q 62 156 62 140 Z" fill="url(#leafGrad2)" />
+            <path d="M 78 160 Q 56 150 62 172 Q 84 170 78 160 Z" fill="url(#leafGrad2)" />
+            <path d="M 98 185 Q 78 175 84 196 Q 104 195 98 185 Z" fill="url(#leafGrad2)" />
+
+            <!-- Right eucalyptus branch -->
+            <path d="M 255 250 C 285 195 305 155 328 135 C 312 150 292 160 282 175" stroke="#15803d" stroke-width="3.5" fill="none" stroke-linecap="round" />
+            <path d="M 318 140 Q 340 130 334 152 Q 318 156 318 140 Z" fill="url(#leafGrad2)" />
+            <path d="M 302 160 Q 324 150 318 172 Q 296 170 302 160 Z" fill="url(#leafGrad2)" />
+            <path d="M 282 185 Q 302 175 296 196 Q 276 195 282 185 Z" fill="url(#leafGrad2)" />
+
+            <!-- Top center leafy delicate stalks -->
+            <path d="M 185 200 Q 178 125 168 85" stroke="#22c55e" stroke-width="2.5" fill="none" />
+            <path d="M 195 200 Q 202 125 212 85" stroke="#22c55e" stroke-width="2.5" fill="none" />
+            <circle cx="168" cy="85" r="7" fill="#bbf7d0" />
+            <circle cx="212" cy="85" r="7" fill="#bbf7d0" />
+          </g>
+
+          <!-- Lavender Spikes on Left and Right -->
+          <g class="lavender-sprigs">
+            <!-- Left lavender -->
+            <path d="M 145 240 Q 102 155 88 98" stroke="#166534" stroke-width="2.2" fill="none" />
+            <ellipse cx="88" cy="94" rx="5.5" ry="9" fill="url(#lavenderGrad2)" />
+            <ellipse cx="92" cy="107" rx="6.5" ry="10" fill="url(#lavenderGrad2)" />
+            <ellipse cx="84" cy="116" rx="6.5" ry="10" fill="url(#lavenderGrad2)" />
+            <ellipse cx="96" cy="127" rx="7.5" ry="11" fill="url(#lavenderGrad2)" />
+            <ellipse cx="87" cy="138" rx="7.5" ry="11" fill="url(#lavenderGrad2)" />
+
+            <!-- Right lavender -->
+            <path d="M 235 240 Q 278 155 292 98" stroke="#166534" stroke-width="2.2" fill="none" />
+            <ellipse cx="292" cy="94" rx="5.5" ry="9" fill="url(#lavenderGrad2)" />
+            <ellipse cx="288" cy="107" rx="6.5" ry="10" fill="url(#lavenderGrad2)" />
+            <ellipse cx="296" cy="116" rx="6.5" ry="10" fill="url(#lavenderGrad2)" />
+            <ellipse cx="284" cy="127" rx="7.5" ry="11" fill="url(#lavenderGrad2)" />
+            <ellipse cx="293" cy="138" rx="7.5" ry="11" fill="url(#lavenderGrad2)" />
+          </g>
+
+          <!-- Back Wrapper Cone Flare -->
+          <g class="wrapper-back">
+            <polygon points="105,235 190,395 275,235 328,205 52,205" fill="url(#wrapInnerGrad2)" opacity="0.95" />
+          </g>
+
+          <!-- Main Blooming Purple Flowers -->
+          <g class="blooming-flowers">
+
+            <!-- Top Center Starry Flower: Lavender Daisy with Gold Heart -->
+            <g class="flower flower-top">
+              <path d="M 190 130 C 174 88 206 88 190 130 Z" fill="#fdf4ff" />
+              <path d="M 190 130 C 206 88 238 104 190 130 Z" fill="#e9d5ff" />
+              <path d="M 190 130 C 232 114 238 152 190 130 Z" fill="#d8b4fe" />
+              <path d="M 190 130 C 228 152 201 174 190 130 Z" fill="#c084fc" />
+              <path d="M 190 130 C 179 174 152 152 190 130 Z" fill="#a855f7" />
+              <path d="M 190 130 C 142 152 148 114 190 130 Z" fill="#c084fc" />
+              <path d="M 190 130 C 142 104 174 88 190 130 Z" fill="#e9d5ff" />
+              <!-- Golden Glowing Center -->
+              <circle cx="190" cy="130" r="10" fill="#facc15" filter="url(#softGlow)" />
+              <circle cx="190" cy="130" r="5.5" fill="#fef08a" />
+            </g>
+
+            <!-- Left Main Flower: Velvet Violet Peony / Rose -->
+            <g class="flower flower-left">
+              <path d="M 132 178 C 80 152 96 114 132 136 C 168 114 184 152 132 178 Z" fill="url(#roseLeftGrad2)" opacity="0.95" />
+              <path d="M 90 156 C 74 182 110 210 132 194 C 154 210 180 182 164 156 Z" fill="#7e22ce" />
+              <path d="M 112 156 C 100 140 132 130 142 146 C 152 162 122 172 112 156 Z" fill="#9333ea" />
+              <path d="M 122 150 C 116 142 138 140 138 150 C 138 158 126 158 122 150 Z" fill="#e9d5ff" />
+              <circle cx="132" cy="154" r="4.5" fill="#fdf4ff" />
+            </g>
+
+            <!-- Right Main Flower: Blooming Magenta-Violet Blossom -->
+            <g class="flower flower-right">
+              <path d="M 248 178 C 206 142 232 110 258 132 C 290 110 310 146 268 178 Z" fill="url(#roseRightGrad2)" opacity="0.95" />
+              <path d="M 216 162 C 206 188 238 214 258 194 C 278 214 310 182 288 162 Z" fill="#86198f" />
+              <path d="M 238 156 C 228 140 258 130 268 146 C 278 162 248 172 238 156 Z" fill="#a21caf" />
+              <path d="M 248 150 C 242 142 264 140 264 150 C 264 158 252 158 248 150 Z" fill="#f5d0fe" />
+              <circle cx="256" cy="152" r="4.5" fill="#fdf4ff" />
+            </g>
+
+            <!-- Center Queen Rose: Majestic Lavender Rose -->
+            <g class="flower flower-center">
+              <ellipse cx="190" cy="198" rx="48" ry="36" fill="#4c1d95" />
+              <path d="M 148 192 C 136 155 178 140 190 162 C 202 140 244 155 232 192 Z" fill="#6b21a8" />
+              <path d="M 152 186 C 146 220 190 230 190 230 C 190 230 234 220 228 186 C 212 208 168 208 152 186 Z" fill="#9333ea" />
+              <path d="M 164 182 C 158 160 190 150 196 166 C 206 150 222 166 216 182 C 206 198 174 198 164 182 Z" fill="url(#roseCenterGrad2)" />
+              <path d="M 179 176 C 177 168 195 164 198 172 C 200 178 186 182 182 178 Z" fill="#fae8ff" />
+              <circle cx="190" cy="176" r="4" fill="#ffffff" />
+            </g>
+
+            <!-- Baby's Breath / Tiny Blossoms tucked into the edges -->
+            <g class="tiny-blossoms">
+              <circle cx="158" cy="125" r="4.5" fill="#c084fc" />
+              <circle cx="158" cy="125" r="1.8" fill="#fef08a" />
+              <circle cx="222" cy="125" r="4.5" fill="#c084fc" />
+              <circle cx="222" cy="125" r="1.8" fill="#fef08a" />
+              <circle cx="190" cy="235" r="5.5" fill="#f472b6" />
+              <circle cx="190" cy="235" r="2.2" fill="#fde047" />
+              <circle cx="120" cy="210" r="4" fill="#e879f9" />
+              <circle cx="260" cy="210" r="4" fill="#e879f9" />
+            </g>
+
+          </g>
+
+          <!-- Front Paper Packaging Wrapper -->
+          <g class="wrapper-front">
+            <polygon points="78,220 190,400 142,242" fill="#d8b4fe" />
+            <polygon points="302,220 190,400 238,242" fill="#c084fc" />
+            <polygon points="115,232 190,405 265,232 190,248" fill="url(#wrapGrad2)" />
+            <line x1="190" y1="248" x2="190" y2="405" stroke="rgba(126, 34, 206, 0.35)" stroke-width="2.5" />
+          </g>
+
+          <!-- Satin Purple Ribbon & Bow -->
+          <g class="ribbon-bow">
+            <!-- Flowing Tails -->
+            <path d="M 184 330 C 168 358 152 385 146 415 C 155 405 166 384 177 346 Z" fill="url(#ribbonGrad2)" />
+            <path d="M 196 330 C 212 358 228 385 234 415 C 225 405 214 384 203 346 Z" fill="url(#ribbonGrad2)" />
+            <!-- Bow Loops -->
+            <path d="M 190 330 C 150 314 135 342 162 352 C 178 355 188 340 190 330 Z" fill="url(#ribbonGrad2)" />
+            <ellipse cx="160" cy="336" rx="6" ry="3.5" fill="#fdf4ff" opacity="0.65" transform="rotate(-15 160 336)" />
+            <path d="M 190 330 C 230 314 245 342 218 352 C 202 355 192 340 190 330 Z" fill="url(#ribbonGrad2)" />
+            <ellipse cx="220" cy="336" rx="6" ry="3.5" fill="#fdf4ff" opacity="0.65" transform="rotate(15 220 336)" />
+            <!-- Bow Knot with Purple Heart -->
+            <ellipse cx="190" cy="332" rx="10" ry="9" fill="#581c87" />
+            <text x="190" y="336" font-size="10" text-anchor="middle" fill="#fdf4ff">💜</text>
+          </g>
+
+          <!-- Soft Floating Fairy Pollen -->
+          <g class="fairy-pollen" fill="#fef08a">
+            <circle cx="115" cy="105" r="2.2" opacity="0.85" />
+            <circle cx="270" cy="90" r="2.8" opacity="0.9" />
+            <circle cx="168" cy="65" r="2" opacity="0.8" />
+            <circle cx="222" cy="70" r="2.2" opacity="0.95" />
+            <circle cx="75" cy="165" r="1.8" opacity="0.7" />
+            <circle cx="310" cy="165" r="1.8" opacity="0.7" />
+          </g>
+        </svg>
+
+        <!-- Floating Fairy Sparkles & Petals around the Bouquet -->
+        <div class="bloom-sparks" aria-hidden="true">
+          <span class="b-spark sp-1">💜</span>
+          <span class="b-spark sp-2">✦</span>
+          <span class="b-spark sp-3">🌸</span>
+          <span class="b-spark sp-4">✧</span>
+          <span class="b-spark sp-5">💜</span>
+          <span class="b-spark sp-6">✦</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Enhanced Ethereal Curved Grassy Ground Layer -->
+    <div class="grass-ground-magical" aria-hidden="true">
+      <svg class="hills-svg" viewBox="0 0 1400 320" preserveAspectRatio="none">
+        <defs>
+          <!-- Glowing edge stroke gradients -->
+          <linearGradient id="hillEdgeGlow1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(180, 100, 255, 0.05)" />
+            <stop offset="25%"  stop-color="rgba(220, 160, 255, 0.70)" />
+            <stop offset="55%"  stop-color="rgba(200, 100, 255, 0.90)" />
+            <stop offset="80%"  stop-color="rgba(240, 180, 255, 0.75)" />
+            <stop offset="100%" stop-color="rgba(160, 60, 240, 0.10)" />
+          </linearGradient>
+          <linearGradient id="hillEdgeGlow2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(140, 40, 220, 0.10)" />
+            <stop offset="30%"  stop-color="rgba(240, 140, 255, 0.80)" />
+            <stop offset="60%"  stop-color="rgba(255, 180, 255, 0.95)" />
+            <stop offset="100%" stop-color="rgba(180, 80, 240, 0.15)" />
+          </linearGradient>
+          <linearGradient id="hillEdgeGlow3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="rgba(160, 60, 230, 0.10)" />
+            <stop offset="35%"  stop-color="rgba(250, 200, 255, 0.90)" />
+            <stop offset="65%"  stop-color="rgba(220, 130, 255, 1.00)" />
+            <stop offset="100%" stop-color="rgba(180, 70, 240, 0.15)" />
+          </linearGradient>
+          <!-- Hill fills: dark deep-purple shading -->
+          <linearGradient id="hillFill1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#2a0948" />
+            <stop offset="60%"  stop-color="#150428" />
+            <stop offset="100%" stop-color="#0a0115" />
+          </linearGradient>
+          <linearGradient id="hillFill2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#1e073a" />
+            <stop offset="60%"  stop-color="#100320" />
+            <stop offset="100%" stop-color="#070010" />
+          </linearGradient>
+          <linearGradient id="hillFill3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#130228" />
+            <stop offset="60%"  stop-color="#08011a" />
+            <stop offset="100%" stop-color="#030008" />
+          </linearGradient>
+          <!-- Soft ambient glow filter for edge lines -->
+          <filter id="hillGlow" x="-10%" y="-200%" width="120%" height="500%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Far Back Hill: the horizon -->
+        <path d="M -20 135 C 180 60 420 50 700 95 C 980 140 1200 55 1420 80 L 1420 320 L -20 320 Z"
+              fill="url(#hillFill1)" />
+        <path d="M -20 135 C 180 60 420 50 700 95 C 980 140 1200 55 1420 80"
+              stroke="url(#hillEdgeGlow1)" stroke-width="3" fill="none" opacity="0.7" filter="url(#hillGlow)" />
+
+        <!-- Mid Hill: lush rolling -->
+        <path d="M -20 175 C 150 100 380 90 700 128 C 1020 165 1250 85 1420 115 L 1420 320 L -20 320 Z"
+              fill="url(#hillFill2)" />
+        <path d="M -20 175 C 150 100 380 90 700 128 C 1020 165 1250 85 1420 115"
+              stroke="url(#hillEdgeGlow2)" stroke-width="3.5" fill="none" opacity="0.85" filter="url(#hillGlow)" />
+
+        <!-- Front Meadow Hill: bouquet rests here -->
+        <path d="M -20 210 C 120 150 350 138 700 170 C 1050 202 1280 140 1420 162 L 1420 320 L -20 320 Z"
+              fill="url(#hillFill3)" />
+        <path d="M -20 210 C 120 150 350 138 700 170 C 1050 202 1280 140 1420 162"
+              stroke="url(#hillEdgeGlow3)" stroke-width="4" fill="none" opacity="1" filter="url(#hillGlow)" />
+
+        <!-- Bioluminescent meadow sparkles on hills -->
+        <g opacity="0.9">
+          <circle cx="95"   cy="195" r="3.5" fill="#e879f9" />
+          <circle cx="210"  cy="168" r="4.5" fill="#f0abfc" />
+          <circle cx="360"  cy="152" r="3"   fill="#e879f9" />
+          <circle cx="490"  cy="162" r="4"   fill="#c084fc" />
+          <circle cx="600"  cy="158" r="3.5" fill="#f5d0fe" />
+          <circle cx="700"  cy="167" r="5"   fill="#f0abfc" />
+          <circle cx="820"  cy="171" r="3.5" fill="#e879f9" />
+          <circle cx="960"  cy="156" r="4"   fill="#c084fc" />
+          <circle cx="1090" cy="148" r="3"   fill="#f5d0fe" />
+          <circle cx="1210" cy="155" r="4.5" fill="#e879f9" />
+          <circle cx="1340" cy="162" r="3.5" fill="#f0abfc" />
+          <circle cx="145"  cy="162" r="2.5" fill="#f5d0fe" opacity="0.7" />
+          <circle cx="430"  cy="135" r="2.5" fill="#e879f9" opacity="0.7" />
+          <circle cx="870"  cy="142" r="2.5" fill="#f0abfc" opacity="0.7" />
+          <circle cx="1150" cy="130" r="2.5" fill="#c084fc" opacity="0.7" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
